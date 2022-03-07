@@ -16,3 +16,100 @@
   <script src="../lib/counterup/counterup.min.js"></script>
   <script src="../lib/superfish/hoverIntent.js"></script>
   <script src="../lib/superfish/superfish.min.js"></script>
+  
+  <script >
+  
+  
+  var cards =  document.getElementsByClassName('card-text');
+  
+  console.log("S9ze -->",cards.length)
+		for (let step = 0; step <cards.length; step++) {
+
+      var card = cards[step];
+      var ps = card.children;
+      var siz3 = ps.length-1;
+      
+      var text = ps[0].innerText;
+      var title = document.createElement("h3");
+      var feature = document.createTextNode("Caracteristicas");
+
+      text = text.replace("Características:","");
+      title.appendChild(feature);
+
+      title.style.color = "black";
+
+
+      ps[0].replaceChildren(title);
+
+      var parrafo = document.createElement("p");
+      var contenido = document.createTextNode(text);
+
+      ps[0].append(contenido);
+      console.log("Paso --> ",step)      
+      
+      var col1 = document.createElement("div");
+      col1.classList.add("col-6");
+      col1.append(ps[siz3-3],ps[siz3-2]);
+
+      var col2 = document.createElement("div");
+      col2.classList.add("col-6");
+      col2.append(ps[siz3-3],ps[siz3-2]);
+
+
+      var row_ = document.createElement("div");
+      row_.classList.add("row");
+
+
+      row_.append(col1,col2);
+      card.append(row_);
+		 
+		}
+    /*
+    circle = document.getElementById("circle")
+    circlearray = circle.textContent.split('')
+    
+    circle.textContent = ''
+    
+    for(var i = 0; i< circlearray.length; i++){
+      circle.innerHTML += '<span style="transform:rotate('+((i+1)*10)+'deg)">'+ circlearray[i]+'</span>'
+    }
+    */
+    
+  </script>
+  
+  
+  <script>
+
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '360',
+        width: '640',
+        videoId: 'afkCgW50mYw',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+
+    var done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        setTimeout(stopVideo, 6000);
+        done = true;
+      }
+    }
+    function stopVideo() {
+      player.stopVideo();
+    }
+  </script>

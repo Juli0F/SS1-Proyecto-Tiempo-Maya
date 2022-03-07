@@ -1,9 +1,19 @@
 
 body {
-  background: #fff;
+  background: rgb(190, 188, 188);
+  
   color: #666666;
   font-family: "Open Sans", sans-serif;
+  
 }
+body > div  , .div_interno{
+  
+  
+    color: #000000;
+    background:rgb(112, 103, 103);
+  
+}
+
 
 a {
   color: #2dc997;
@@ -15,10 +25,12 @@ button.navbar-toggler:focus{
 }
 
 a:hover, a:active, a:focus {
-  color: #2dca98;
+  /*color: #2dca98;*/
+  color:black;
   outline: none;
   text-decoration: none;
   transition: 0.5s;
+  
 }
 
 p {
@@ -107,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
 #inicio {
   width: 100%;
   height: 100vh;
-  background: url(../img/fondo.png) top center;
+  background: url(../img/fondo1.png) top center;
   background-size: cover;
   position: relative;
 }
@@ -234,6 +246,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu, .nav-menu * {
   margin: 0;
   padding: 0;
+  
   list-style: none;
 }
 
@@ -242,13 +255,16 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   display: none;
   top: 100%;
-  left: 0;
+  left: 1;
+  
+  color: black;
   z-index: 99;
 }
 
 .nav-menu li {
   position: relative;
   white-space: nowrap;
+  font: 1em sans-serif;
 }
 
 
@@ -259,7 +275,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu li:hover > ul,
 .nav-menu li.sfHover > ul {
-  display: block;
+  display: none;
+  background-color: #333;
 }
 
 .nav-menu ul ul {
@@ -399,4 +416,20 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-size: 13px;
   color: #ccc;
+}
+/*
+Rueda Calendarica
+*/
+.center{
+  display: grid;
+  place-items: center;
+}
+#circle span{
+  position: absolute;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  height: 300px;
+  font-size: 30px;
+  width: 200px;
+  text-align: left;
+  transform-origin: bottom left;
 }

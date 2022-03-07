@@ -7,6 +7,9 @@ $informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempo_maya.p
 $secciones = $conn->query("SELECT seccion FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
 $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
+/*
+Rueda calendarica
+*/
 
 
 ?>
@@ -17,6 +20,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
 <head>
     <meta charset="utf-8">
     <title>Tiempo Maya - <?php echo $pagina ?></title>
+    
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <?php include "../blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
@@ -26,11 +30,20 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
 </head>
 <?php include "../NavBar2.php" ?>
 
-<body>
+<body  class="div_interno">
     <section id="inicio">
         <div id="inicioContainer" class="inicio-container">
 
-            <?php echo "<h1>" . $pagina . " </h1>";
+            <?php 
+            
+            if( $pagina === "Rueda Calendarica"){
+                echo "<div class='center'>";
+                echo "<h1 id='circle'>".$pagina."</h1>";
+                echo "</div>";
+            }else{
+                echo "<h1>" . $pagina . " </h1>";
+            }
+            
             foreach ($secciones as $seccion) {
                 echo " <a href='#" . $seccion['seccion'] . "' class='btn-get-started'>" . $seccion['seccion'] . "</a>";
             }

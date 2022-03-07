@@ -1,5 +1,9 @@
 <?php
 
+
+
+
+
 $conn = include 'conexion/conexion.php';
 $kinesNav = $conn->query("SELECT nombre FROM tiempo_maya.kin order by nombre;");
 $uinalesNav = $conn->query("SELECT nombre FROM tiempo_maya.uinal order by nombre;");
@@ -20,6 +24,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
           <span><i style="color: white;" class="fas fa-bars"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        
           <ul class="navbar-nav nav-menu">
             <li>
               <a class="nav-link" href="models/paginaModelo.php?pagina=Calendario Haab">Calendario Haab &nbsp;&nbsp;&nbsp;&nbsp; </a>

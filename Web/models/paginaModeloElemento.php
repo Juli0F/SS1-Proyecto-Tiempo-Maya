@@ -7,7 +7,7 @@ session_start(); ?>
 
 $conn = include '../conexion/conexion.php';
 $tabla = $_GET['elemento'];
-$table =strtolower($tabla);
+$table = strtolower($tabla);
 $datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempo_maya." . $table . ";");
 $elementos = $datos;
 $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nombre='" . $tabla . "';");
@@ -34,9 +34,7 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
 <body>
     <section id="inicio">
         <div id="inicioContainer" class="inicio-container">
-
-            <?php echo "<h1>" . $tabla . " </h1>";
-            ?>
+            <?php echo "<h1>" . $tabla . " </h1>"; ?>
             <a href='#informacion' class='btn-get-started'>Informacion</a>
             <a href='#elementos' class='btn-get-started'>Elementos</a>
         </div>
@@ -47,33 +45,59 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
                 <div class="section-header">
                     <h3 class="section-title">INFORMACION</h3>
                 </div>
-                <?php foreach($informacion as $info){
+                <div id="player"></div>
+                
+                <?php foreach ($informacion as $info) {
                     echo $info['htmlCodigo'];
-                }?>
+                } ?>
             </div>
 
         </div>
     </section>
     <hr>
-    
-    <section id="elementos">
-        <div class="container">
-            <div class="row about-container">
-                <div class="section-header">
-                    <h3 class="section-title">Elementos</h3>
-                </div>
-                <?php foreach($datos as $dato){
-                   $stringPrint = "<h4 id='".$dato['nombre']."'>".$dato['nombre']."</h4>";
-                   $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
-                   $stringPrint.="<p>".$dato['htmlCodigo']."</p> <hr>";
-                   echo $stringPrint;
-                }?>
-            </div>
 
+
+
+
+    <!--<div id="elementos" class="container-fluid" >-->
+    <div class="row">
+        <div  style="position: relative; top: 40px; left: 40px;" class="col-2">
+        <img src='../imgs/maya/calendario haab.svg'>
         </div>
-    </section>
+        
+        <div class="col-8">
+            <?php
 
+            foreach ($datos as $dato) {
 
+                $r_char = array("'", "´");
+                $stringPrint = "<div class='card div_interno'  >";
+                $name = trim(str_replace($r_char, "", $dato['nombre']));
+                //$stringPrint .= "<img style='width: 20rem;' class='card-img-top' src='../imgs/maya/". $name . ".svg' alt='Card image cap' >";
+                echo   $name;
+                $stringPrint .= "<div class='card-body  ' style='border-style: groove;'>";
+
+                $stringPrint .= "<div class='card div_interno'>";
+                $stringPrint .= "<div class='card-body' style='border-style: groove;'>";
+                $stringPrint .= "<img style=''  src='../imgs/maya/" . $name . ".svg'>";
+                $stringPrint .= "<h3 class='section-title  div_interno text-center' id='" . $dato['nombre'] . "'>" . $dato['nombre'] . ":    " . $dato['significado'] . "</h3>";
+                $stringPrint .= "</div>";
+                $stringPrint .= "</div>";
+
+                $stringPrint .= "<div class='card-text'>" . $dato['htmlCodigo'] . "</div> </div></div>";
+                $stringPrint .= "<br/><br/>";
+
+                echo $stringPrint;
+            }
+            ?>
+        </div>
+
+        <div class="col-2">
+            
+        </div>
+    </div>
+    
+    
     <?php include "../blocks/bloquesJs.html" ?>
 
 
