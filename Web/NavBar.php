@@ -117,7 +117,10 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
     </nav>
   </div>
 </header>
-
+<audio src="./imgs/maya/audio.webm"
+       autoplay>
+  Porfavor use la ultima version de firefox <code>audio</code> element.
+</audio>
 
 <script type="text/javascript">
   var relleno = false;

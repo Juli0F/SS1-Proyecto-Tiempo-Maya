@@ -1,0 +1,19 @@
+<script>
+    setInterval(changefondo, 2000);
+        
+        //setTimeout(, 3000);
+        function changefondo(){
+          
+          setTimeout(function(){
+              var fondo = document.getElementById("inicio");
+              var numero = number_random(1,8);
+              console.log("../img/fondo"+numero+".jpg")
+              fondo.style.background = "url(../img/fondo"+numero+".jpg)";
+              });
+          
+        }
+        function number_random(min, max) {
+          return Math.floor((Math.random() * (max - min + 1)) + min);
+        }
+    
+    </script>

@@ -45,6 +45,7 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
                 <div class="section-header">
                     <h3 class="section-title">INFORMACION</h3>
                 </div>
+                <p>Video Tomado del Canal de Youtube FUNDESYRAM</p>
                 <div id="player"></div>
                 
                 <?php foreach ($informacion as $info) {
@@ -99,6 +100,7 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
     
     
     <?php include "../blocks/bloquesJs.html" ?>
+    <?php include "../blocks/cambiarFondo.html" ?>
 
 
 

@@ -92,6 +92,7 @@ Rueda calendarica
 
 
     <?php include "../blocks/bloquesJs.html" ?>
+    <?php include "../blocks/cambiarFondo.html" ?>
 
 
 
